@@ -71,7 +71,7 @@ module main_module_tb;
 		.TDO(TDO)
 	);
 
-	/*initial begin
+	initial begin
 		// Initialize Inputs
 		TDI <=0;
 		TMS <=0;
@@ -86,8 +86,10 @@ module main_module_tb;
 		#100;
         
 		// Add stimulus here
+		PIN_IN_1 <=1;
+		PIN_IN_2 <=1;
 		
-	end*/
+	end
 	
 	always begin
 		#5  TCK <=~TCK; // 200MHz
@@ -173,12 +175,12 @@ module main_module_tb;
 
 	  repeat(5) @(negedge TCK); // Test Logic Reset <- F
 
-	  command(BIST_CONF); //data(4'b0001); 
+	  /*command(BIST_CONF); //data(4'b0001); 
 	  data(13'h0003);
 	  command(BIST);
 	  command(BIST_STATUS);
 	  data(13'b0);
-	  data(13'b0);
+	  data(13'b0);*/
 	  //data(4'b1111);
 	  //data(4'b0011);
 	  //data(4'b0100);
@@ -191,6 +193,8 @@ module main_module_tb;
 	  //command(INTEST); data(4'b0110);
 	  //command(BYPASS); //data(4'b1000);
 	  
+	command(EXTEST); data(4'b1111);
+		
 	  repeat(10) @(posedge TCK); $finish;
 	end
 
