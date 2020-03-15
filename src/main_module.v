@@ -49,6 +49,7 @@ module main_module(
 	assign TDI_LA = TDI;
 	assign TCK_LA = TCK;
 	
+	wire [15:0] BIST_STATUS_REG;
 	assign LEDs = TUMBLER ? BIST_STATUS_REG[7:0] : BIST_STATUS_REG[15:8];
 		
 	// TAP outputs
@@ -84,7 +85,7 @@ module main_module(
 	
 	// BIST registers
 	wire [12:0] BIST_CONF_REG;
-	wire [15:0] BIST_STATUS_REG;
+	//wire [15:0] BIST_STATUS_REG;
 	wire [2051:0] BIST_USER_TEST;
 	
 	// FSM ports
